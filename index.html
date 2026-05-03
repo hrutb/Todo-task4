@@ -12,13 +12,46 @@
     
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
-    <body>
-    <form action="" id="todoForm">
-        
-    </form>                
-        
- 
-      <script src="./assets/js/app.js"></script>
+    <body> 
+
+
+      <div class="container">
+        <div class="row">
+         <div class="col-md-6 mt-5">
+           <div class="card">
+             <div class="card-body">
+               <form action="" id ='todoForm'>
+                  <div class="form-group">
+                   <label for="todoItem" class="sr-only">Todo Item</label>
+                   <input type="text" id="todoItem" class="form-control" placeholder="Enter your todo here....">            
+                  </div>
+                 <button type="submit" id="addTodo" class="btn btn-block  btn-outline-primary ">Add Todo</button>
+              </form>  
+             </div>
+           </div> 
+          </div>
+
+          <div class="col-md-6 mt-5">
+             <div class="card">
+                <div class="card-body">
+                    <ul id="todoContainer" class="list-group todoList">
+                        <!-- <li class="list-group-item d-flex justify-content-between">
+                           <Strong>JS and TS</Strong>
+                            <div>
+                              <i class="fa-solid fa-pen-to-square  text-primary"></i>  
+                              <i class="fa-regular fa-trash-can  text-danger"></i>
+                            </div>
+                        </li> -->
+
+                    </ul>
+                </div>
+             </div>
+          </div>
+
+        </div>
+      </div>     
+       
+     <script src="./assets/js/app.js"></script>
    </body>
    
 </html>

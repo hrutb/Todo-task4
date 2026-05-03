@@ -1,0 +1,23 @@
+body{ 
+    background-color: rgb(182, 218, 249);
+} 
+
+
+.card{ 
+    border-radius:20px;
+    }
+
+.card li{ 
+     border-radius: 10px;        
+     transition: all 0.5s linear;
+}
+
+.card li:hover{ 
+    transform: scale(1.1);
+}
+.todoList li i{ 
+    transition:all .4s linear;
+}
+.todoList li i:hover{
+              transform: scale(1.6);  
+ }
