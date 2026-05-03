@@ -73,6 +73,14 @@ let ul =document.querySelector('ul');
 }
 
  
+function onRemove(ele){ 
+       cl(ele) //this will select html element it will give <i> 
+   let remove_id= ele.closest('li').id;
+   let getIndex =todoArr.findIndex(ele=>ele.todoId===remove_id)
+       todoArr.splice(getIndex,1);
+  
+ ele.closest('li').remove();      
+} 
 
 
 
