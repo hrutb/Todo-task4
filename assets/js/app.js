@@ -37,7 +37,7 @@ function snackBar(msg){
 function createArr(arr){ 
         let result ='';
   arr.forEach(ele=>{ 
-         result +=`<li class="list-group-item d-flex justify-content-between" id='${ele.todoId}'>
+         result =`<li class="list-group-item d-flex justify-content-between" id='ele.todoId'>
                            <Strong>${ele.todoItem}</Strong>
                             <div>
                               <i  onclick="onEdit(this)" class="fa-solid fa-pen-to-square  text-primary"></i>  
@@ -81,6 +81,14 @@ let ul =document.querySelector('ul');
 }
 
  
+function onRemove(ele){ 
+       cl(ele) //this will select html element it will give <i> 
+   let remove_id= ele.closest('li').id;
+   let getIndex =todoArr.findIndex(ele=>ele.todoId===remove_id)
+       todoArr.splice(getIndex,1);
+  
+ ele.closest('li').remove();      
+} 
 
 
 let Edit_id
