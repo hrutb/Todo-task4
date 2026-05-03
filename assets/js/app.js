@@ -37,7 +37,7 @@ function snackBar(msg){
 function createArr(arr){ 
         let result ='';
   arr.forEach(ele=>{ 
-         result =`<li class="list-group-item d-flex justify-content-between" id='${ele.todoId}'>
+         result +=`<li class="list-group-item d-flex justify-content-between" id='${ele.todoId}'>
                            <Strong>${ele.todoItem}</Strong>
                             <div>
                               <i  onclick="onEdit(this)" class="fa-solid fa-pen-to-square  text-primary"></i>  
