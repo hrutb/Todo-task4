@@ -1,14 +1,14 @@
 let todoArr=[ 
            { 
-            todoItem:"JAVA & PYTHON",
+            todoItem:"LESS & PYTHON",
             todoId:"asdf12-asd45-sdf12"
            },
            { 
-            todoItem:"JAVA & PYTHON",
+            todoItem:"CSS & SASS",
             todoId:"asdf1-asdx5-sdf12"
            },
            { 
-            todoItem:"JAVA & PYTHON",
+            todoItem:"JS and TS",
             todoId:"asdf2-qazasd45-sdf12"
            }
        ] 
@@ -19,17 +19,25 @@ let todoArr=[
 const todoForm =document.getElementById('todoForm');
 const todoContainer=document.getElementById('todoContainer');
 const todoItemControl= document.getElementById('todoItem'); 
+const updateTodo =document.getElementById('updateTodo');
 const cl = console.log;
+
+
+
 
 function snackBar(msg){ 
           swal.fire({ 
-               tit
-          })
+               title:msg,
+               timer:2000,
+               icon:'success'  
+              })
 }
+
+
 function createArr(arr){ 
         let result ='';
   arr.forEach(ele=>{ 
-         result =`<li class="list-group-item d-flex justify-content-between" id='ele.todoId'>
+         result +=`<li class="list-group-item d-flex justify-content-between" id='${ele.todoId}'>
                            <Strong>${ele.todoItem}</Strong>
                             <div>
                               <i  onclick="onEdit(this)" class="fa-solid fa-pen-to-square  text-primary"></i>  
@@ -75,8 +83,44 @@ let ul =document.querySelector('ul');
  
 
 
+let Edit_id
+function onEdit(ele){
+       
+       //get id present on li  
+   Edit_id = ele.closest('li').id;
 
-function onEdit(){}
+      //find object of that id 
+ let Edit_obj = todoArr.find(ele=>ele.todoId ===Edit_id); 
+     todoItemControl.value = Edit_obj.todoItem;  
+ addTodo.classList.add('d-none');
+  updateTodo.classList.remove('d-none');
+}
+
+
+function onUpdate(ele){ 
+      let updated_obj ={ 
+               todoItem:todoItemControl.value,
+               todoId:Edit_id    
+          }
+  
+     let updated_id = Edit_id;
+     let getIndex=todoArr.findIndex(ele=>ele.todoId===updated_id) 
+      
+      //set updated value in array
+     todoArr[getIndex]=updated_obj.todoItem ; 
+   
+     //update value on UI
+     let li =document.getElementById(updated_id).firstElementChild; 
+     li.innerText= updated_obj.todoItem; 
+  
+     todoForm.reset(); 
+   
+     addTodo.classList.remove('d-none');
+     updateTodo.classList.add('d-none');
+
+     snackBar('Todo item is  updated successfully');
+
+}
 
 
 
@@ -84,7 +128,5 @@ function onEdit(){}
 
 
 
-
-
-
-todoForm.addEventListener('submit', onFormHandler)
+todoForm.addEventListener('submit', onFormHandler); 
+updateTodo.addEventListener('click', onUpdate);
